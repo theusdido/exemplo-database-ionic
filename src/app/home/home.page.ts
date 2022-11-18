@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RequisicaoService } from '../requisicao.service';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public nome:string = '';
+  constructor(
+    public requisicao_service:RequisicaoService
+  ) {}
 
-  constructor() {}
+  salvar(){
+    this.requisicao_service.salvarPessoa({
+      nome:this.nome,
+      data:new Date().getTime()
+    }).subscribe(
 
+      (resposta) => {
+        console.log(resposta);
+      }
+    );
+  }
 }
