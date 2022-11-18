@@ -14,12 +14,11 @@ export class HomePage {
 
   salvar(){
     this.requisicao_service.salvarPessoa({
-      nome:this.nome,
-      data:new Date().getTime()
+      nome:this.nome
     }).subscribe(
 
       (resposta) => {
-        console.log(resposta);
+        // Processa a resposta da requisição
       }
     );
   }
